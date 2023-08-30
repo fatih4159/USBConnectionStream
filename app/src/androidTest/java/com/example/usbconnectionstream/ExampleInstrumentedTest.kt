@@ -1,4 +1,4 @@
-package com.example.UsbConnectionStream
+package com.example.usbconnectionstream
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

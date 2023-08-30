@@ -1,4 +1,4 @@
-package com.example.UsbConnectionStream
+package com.example.usbconnectionstream
 
 import org.junit.Test
 

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication2"
+    namespace = "com.example.usbconnectionstream"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.myapplication2"
+        applicationId = "com.example.usbconnectionstream"
         minSdk = 26
         targetSdk = 33
         versionCode = 1

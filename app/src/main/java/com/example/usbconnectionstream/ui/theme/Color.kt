@@ -1,4 +1,4 @@
-package com.example.UsbConnectionStream.ui.theme
+package com.example.usbconnectionstream.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
