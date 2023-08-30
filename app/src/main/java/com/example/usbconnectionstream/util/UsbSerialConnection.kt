@@ -26,7 +26,7 @@ class UsbSerialConnection {
 
     private var job: Job? = null
 
-    public suspend fun readDataFromScanner(context:Context,device: UsbDevice,usbManager:UsbManager,onRead:(String)->String){
+    public suspend fun readDataFromScanner(context:Context,device: UsbDevice,usbManager:UsbManager,onRead:(String)->Unit){
             val scannerInterface = device.getInterface(0) // assuming the scanner uses interface 0
             val endpoint = scannerInterface.getEndpoint(0) // assuming the endpoint is the first one
 
