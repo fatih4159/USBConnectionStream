@@ -2,6 +2,7 @@ package com.example.usbconnectionstream.ui.screens
 
 import android.app.PendingIntent
 import android.content.Intent
+import android.content.IntentFilter
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
 import androidx.compose.foundation.background
@@ -34,17 +35,25 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 private var instance = UsbSerialConnection()
-private lateinit var mUSBManager: UsbManager
-private var mUSBDevice: UsbDevice? = null
+lateinit var mUSBManager: UsbManager
+var mUSBDevice: UsbDevice? = null
+
 
 @Composable
 fun MainScreen(
     context: MainActivity?
 ) {
+
     var scrolltext = remember { mutableStateOf("") }
     var indicator1 = remember { mutableStateOf(IndicatorButtonState.DEFAULT) }
     var indicator2 = remember { mutableStateOf(IndicatorButtonState.DEFAULT) }
     var buttonEnabledState = remember { mutableStateOf(false) }
+
+    var intentFilter = IntentFilter()
+    intentFilter.addAction(UsbSerialConnection.ACTION_USB_PERMISSION)
+    intentFilter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED)
+    context?.registerReceiver(UsbSerialConnection.getUsbReceiver(indicator1, instance,buttonEnabledState), intentFilter)
+
 
     Column(modifier = Modifier
         .fillMaxSize()

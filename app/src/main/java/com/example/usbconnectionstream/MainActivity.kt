@@ -1,6 +1,8 @@
 package com.example.usbconnectionstream
 
 import android.annotation.SuppressLint
+import android.content.IntentFilter
+import android.hardware.usb.UsbManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -32,6 +34,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        UsbSerialConnection.unregisterReceiver(this@MainActivity)
+        super.onDestroy()
     }
 
 }
